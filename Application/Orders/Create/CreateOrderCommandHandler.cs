@@ -33,6 +33,8 @@ namespace Application.Orders.Create
 
             _context.Orders.Add(order);
 
+            _context.OrderSummaries.Add(new OrderSummary(order.Id.Value, customer.Id.Value, 0));
+
             await _context.SaveChangesAsync(cancellationToken);
         }
     }
