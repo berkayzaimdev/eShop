@@ -41,5 +41,17 @@ namespace Domain.Orders
 
             _lineItems.Add(lineItem);
         }
+
+        public void RemoveLineItem(LineItemId lineItemId)
+        {
+            var lineItem = _lineItems.FirstOrDefault(x => x.Id == lineItemId);
+
+            if(lineItem is null)
+            {
+                return;
+            }
+
+            _lineItems.Remove(lineItem);
+        }
     }
 }
